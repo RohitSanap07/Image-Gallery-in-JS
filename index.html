@@ -40,12 +40,6 @@ align-items: center;
     cursor: pointer;
     background-color: aqua;
 }
-
-.scroll{
-
-}
-
-
 .img-change{
     border-radius: 10px;
     height: 600px;
@@ -65,14 +59,58 @@ align-items: center;
 <div class="user-scroll">
     <div class="scroll-container">
 
-<img src="./Images/left.png" class="change-btn"  >
+<img src="./Images/left.png" class="change-btn" onclick="prev()" >
 
 <span class="scroll"><img src="./Images/WC2.webp" class="img-change"></span>
     
-<img src="./Images/right-chevron.png" class="change-btn" >  
-
+<img src="./Images/right-chevron.png" class="change-btn" onclick="next()" >  
+</div>
+</div>
 <h1 class="heading">Thank You...</h1>
-</div>
-</div>
+
+<script>
+let scrollImage = [
+    "../Images/WC2.webp",
+    "../Images/Wc6.webp",
+    "../Images/WC3.webp",
+    "../Images/WC5.avif"
+]
+let currentIndex=0;
+
+function prev(){
+
+    if(currentIndex>0) {
+ currentIndex--;
+   }
+   else{
+    currentIndex = scrollImage.length -1;
+   }
+    document.getElementById("Scroll-image").src=scrollImages[currentIndex];
+}
+
+function next(){
+ if(currentIndex < ScrollImages.length -1){
+      currentIndex++;
+ }
+ else{
+currentIndex = 0;
+ }
+ document.getElementById("Scroll-image").src=ScrollImages[currentIndex];
+
+ }
+ setInterval(next, 2500)
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
 </body>
 </html>
